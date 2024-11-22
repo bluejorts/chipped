@@ -26,11 +26,14 @@
         <%= f.password_field :password_confirmation, class: 'form-control' %>
       </div>
 
-      <%= f.submit 'Sign Up', class: 'btn btn-primary' %>
+      <div class="form-actions">
+        <%= f.submit 'Sign Up', class: 'btn btn-primary' %>
+        <%= link_to 'Back', root_path, class: 'btn btn-secondary' %>
+      </div>
     <% end %>
 
     <div class="auth-links">
-      Already have an account? <%= link_to 'Log In', login_path %>
+      Already have an account? <%= link_to 'Log In', login_path, class: 'text-link' %>
     </div>
   </div>
 </div> 

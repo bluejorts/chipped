@@ -1,0 +1,22 @@
+<div class="pet-card <%= 'owned' if owner %>">
+  <% if pet.image_link.present? %>
+    <div class="pet-image" style="background-image: url('<%= pet.image_link %>')"></div>
+  <% else %>
+    <div class="pet-image pet-image-placeholder">
+      <span>No Image</span>
+    </div>
+  <% end %>
+  
+  <div class="pet-info">
+    <h3><%= pet.name %></h3>
+    <p class="chip-id">Chip ID: <%= pet.chip_id %></p>
+    <p class="species"><%= pet.species %></p>
+    
+    <div class="pet-card-actions">
+      <%= link_to 'View Profile', pet_path(pet), class: 'btn btn-secondary' %>
+      <% if owner %>
+        <%= link_to 'Edit', edit_pet_path(pet), class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div> 

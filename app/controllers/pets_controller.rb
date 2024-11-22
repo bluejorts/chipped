@@ -4,7 +4,16 @@ class PetsController < ApplicationController
   before_action :ensure_owner, only: [ :edit, :update, :destroy ]
 
   def index
-    @pets = current_user.pets
+    @selected_species = params[:species_query]
+
+    @pets = Pet.all.includes(:species)
+    if @selected_species.present?
+      species_ids = Species.search(@selected_species).pluck(:id)
+      @pets = @pets.where(species_id: species_ids)
+    end
+
+    @user_pets = @pets.where(user: current_user)
+    @other_pets = @pets.where.not(user: current_user)
   end
 
   def show
@@ -34,6 +43,11 @@ class PetsController < ApplicationController
     end
   end
 
+  def destroy
+    @pet.destroy
+    redirect_to pets_path, notice: "Pet was successfully removed.", status: :see_other
+  end
+
   private
 
   def set_pet
@@ -41,8 +55,8 @@ class PetsController < ApplicationController
   end
 
   def pet_params
-    params.require(:pet).permit(:chip_id, :name, :date_of_birth, :species,
-                              :vaccination_status, :image_link)
+    params.require(:pet).permit(:chip_id, :name, :date_of_birth,
+                              :species_id, :vaccination_status, :image_link)
   end
 
   def ensure_owner

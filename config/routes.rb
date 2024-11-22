@@ -17,4 +17,10 @@ Rails.application.routes.draw do
   delete "logout", to: "sessions#destroy"
 
   resources :pets
+
+  resources :species, only: [ :create ] do
+    collection do
+      get :search
+    end
+  end
 end
