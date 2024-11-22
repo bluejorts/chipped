@@ -2,7 +2,18 @@ class ApplicationController < ActionController::Base
   allow_browser versions: :modern
   helper_method :current_user, :logged_in?
 
+  # Add this to skip the SSL requirement in development
+  before_action :set_secure_headers
+
   private
+
+  def set_secure_headers
+    if Rails.env.development?
+      response.set_header("X-Frame-Options", "ALLOWALL")
+      response.set_header("Access-Control-Allow-Origin", "*")
+      response.set_header("Access-Control-Allow-Methods", "*")
+    end
+  end
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
