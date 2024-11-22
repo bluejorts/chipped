@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   root "pages#home"
 
+  resources :users, only: [ :new, :create ]
+
   get "signup", to: "users#new"
   post "signup", to: "users#create"
 
