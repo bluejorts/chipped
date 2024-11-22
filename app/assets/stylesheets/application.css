@@ -159,6 +159,7 @@ body {
 
 .form-group {
   margin-bottom: 1.5rem;
+  position: relative;
 }
 
 .form-group label {
@@ -347,6 +348,7 @@ body {
 .species-filter {
   margin: 1rem 0;
   max-width: 300px;
+  position: relative;
 }
 
 .filter-form {
@@ -469,9 +471,12 @@ select.form-control {
   border-radius: 0.5rem;
   max-height: 200px;
   overflow-y: auto;
-  width: 100%;
+  width: calc(100% - 2px);
   z-index: 1000;
   margin-top: 4px;
+  left: 0;
+  right: 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .species-result {

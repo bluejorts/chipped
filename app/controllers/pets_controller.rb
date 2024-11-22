@@ -60,8 +60,9 @@ class PetsController < ApplicationController
   end
 
   def ensure_owner
-    unless @pet.user_id == current_user.id
-      redirect_to pets_path, alert: "You are not authorized to perform this action."
+    unless @pet.user == current_user
+      flash[:error] = "You don't have permission to edit this pet"
+      redirect_to pets_path
     end
   end
 end
