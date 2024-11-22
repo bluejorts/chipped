@@ -8,3 +8,165 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+:root {
+  --pastel-pink: #FFD1DC;
+  --pastel-blue: #AEC6CF;
+  --pastel-yellow: #FDFD96;
+  --pastel-green: #B4EEB4;
+  --dark-text: #333333;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  color: var(--dark-text);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+.btn {
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background-color: var(--pastel-blue);
+  color: var(--dark-text);
+}
+
+.btn-success {
+  background-color: var(--pastel-green);
+  color: var(--dark-text);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+}
+
+.hero {
+  text-align: center;
+  padding: 4rem 1rem;
+  background-color: var(--pastel-blue);
+  border-radius: 0 0 2rem 2rem;
+}
+
+.auth-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.auth-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.pets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.pet-card {
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.pet-card:hover {
+  transform: translateY(-4px);
+}
+
+.pet-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.pet-image-placeholder {
+  background-color: var(--pastel-pink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pet-profile-card {
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+.pet-profile-image {
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.vaccination-status {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.vaccinated {
+  background-color: var(--pastel-green);
+}
+
+.not-vaccinated {
+  background-color: var(--pastel-yellow);
+}
+
+@media (max-width: 768px) {
+  .pet-profile-card {
+    margin: 1rem;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}

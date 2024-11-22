@@ -1,0 +1,13 @@
+<div class="hero">
+  <h1>Welcome to Chipped</h1>
+  <p>Keep track of your pets' microchip information in one place</p>
+  
+  <div class="hero-buttons">
+    <% if logged_in? %>
+      <%= link_to 'View My Pets', pets_path, class: 'btn btn-primary' %>
+    <% else %>
+      <%= link_to 'Sign Up', signup_path, class: 'btn btn-primary' %>
+      <%= link_to 'Log In', login_path, class: 'btn btn-secondary' %>
+    <% end %>
+  </div>
+</div> 

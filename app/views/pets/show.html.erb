@@ -1,0 +1,40 @@
+<div class="pet-profile">
+  <div class="pet-profile-card">
+    <% if @pet.image_link.present? %>
+      <div class="pet-profile-image" style="background-image: url('<%= @pet.image_link %>')"></div>
+    <% end %>
+
+    <div class="pet-profile-info">
+      <h1><%= @pet.name %></h1>
+      
+      <div class="info-grid">
+        <div class="info-item">
+          <label>Chip ID</label>
+          <p><%= @pet.chip_id %></p>
+        </div>
+        
+        <div class="info-item">
+          <label>Date of Birth</label>
+          <p><%= @pet.date_of_birth.strftime('%B %d, %Y') %></p>
+        </div>
+        
+        <div class="info-item">
+          <label>Species</label>
+          <p><%= @pet.species %></p>
+        </div>
+        
+        <div class="info-item">
+          <label>Vaccination Status</label>
+          <p class="vaccination-status <%= @pet.vaccination_status ? 'vaccinated' : 'not-vaccinated' %>">
+            <%= @pet.vaccination_status ? 'Up to date' : 'Needs update' %>
+          </p>
+        </div>
+      </div>
+
+      <div class="pet-actions">
+        <%= link_to 'Edit', edit_pet_path(@pet), class: 'btn btn-secondary' %>
+        <%= link_to 'Back to Pets', pets_path, class: 'btn btn-link' %>
+      </div>
+    </div>
+  </div>
+</div> 

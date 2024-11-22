@@ -1,0 +1,27 @@
+<div class="pets-container">
+  <div class="pets-header">
+    <h1>My Pets</h1>
+    <%= link_to 'Register New Pet', new_pet_path, class: 'btn btn-primary' %>
+  </div>
+
+  <div class="pets-grid">
+    <% @pets.each do |pet| %>
+      <div class="pet-card">
+        <% if pet.image_link.present? %>
+          <div class="pet-image" style="background-image: url('<%= pet.image_link %>')"></div>
+        <% else %>
+          <div class="pet-image pet-image-placeholder">
+            <span>No Image</span>
+          </div>
+        <% end %>
+        
+        <div class="pet-info">
+          <h3><%= pet.name %></h3>
+          <p class="chip-id">Chip ID: <%= pet.chip_id %></p>
+          <p><%= pet.species %></p>
+          <%= link_to 'View Profile', pet_path(pet), class: 'btn btn-secondary' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div> 

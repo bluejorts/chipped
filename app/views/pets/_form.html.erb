@@ -1,0 +1,42 @@
+<%= form_with(model: pet, local: true) do |f| %>
+  <% if pet.errors.any? %>
+    <div class="error-messages">
+      <% pet.errors.full_messages.each do |message| %>
+        <p><%= message %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :chip_id %>
+    <%= f.text_field :chip_id, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :date_of_birth %>
+    <%= f.date_field :date_of_birth, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :species %>
+    <%= f.select :species, ['Dog', 'Cat', 'Bird', 'Rabbit', 'Other'], {}, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :vaccination_status %>
+    <%= f.check_box :vaccination_status, class: 'form-checkbox' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image_link %>
+    <%= f.url_field :image_link, class: 'form-control' %>
+  </div>
+
+  <%= f.submit class: 'btn btn-primary' %>
+  <%= link_to 'Cancel', pets_path, class: 'btn btn-link' %>
+<% end %> 
