@@ -3,14 +3,20 @@
     <div class="pet-image" style="background-image: url('<%= pet.image_link %>')"></div>
   <% else %>
     <div class="pet-image pet-image-placeholder">
-      <span>No Image</span>
+      <span>🐾</span>
     </div>
   <% end %>
   
-  <div class="pet-info">
+  <div class="pet-card-content">
     <h3><%= pet.name %></h3>
-    <p class="chip-id">Chip ID: <%= pet.chip_id %></p>
-    <p class="species"><%= pet.species %></p>
+    <p>Chip ID: <%= pet.chip_id %></p>
+    <p>Species: <%= pet.species.name %></p>
+    <p>Adopted: <%= pet.adopted_at.strftime("%B %d, %Y") %></p>
+    <p>
+      <span class="vaccination-status <%= pet.vaccination_status ? 'vaccinated' : 'not-vaccinated' %>">
+        <%= pet.vaccination_status ? 'Vaccinated' : 'Not Vaccinated' %>
+      </span>
+    </p>
     
     <div class="pet-card-actions">
       <%= link_to 'View Profile', pet_path(pet), class: 'btn btn-secondary' %>

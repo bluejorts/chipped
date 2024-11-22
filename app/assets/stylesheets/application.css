@@ -31,7 +31,7 @@ body {
 
 .container {
   max-width: 800px;
-  margin: 0 auto;
+  margin: auto;
   padding: 20px;
 }
 
@@ -98,14 +98,13 @@ body {
 
 .hero {
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 4rem 2rem;
   background-color: var(--pastel-blue);
   border-radius: 2rem;
   position: relative;
   overflow: hidden;
-  height: calc(100vh - 120px);
   max-width: 1200px;
-  margin: 1rem auto;
+  margin: 2rem auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -297,8 +296,8 @@ body {
 }
 
 .flash-messages {
-  position: fixed;
-  top: 20px;
+  position: absolute;
+  top: 90px;
   right: 20px;
   z-index: 1000;
   max-width: 400px;
@@ -399,11 +398,8 @@ select.form-control {
   height: 70px;
   display: flex;
   align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
+  width: 100%;
+  flex-shrink: 0;
 }
 
 .navbar .container {
@@ -494,9 +490,8 @@ select.form-control {
 
 @media (max-width: 768px) {
   .hero {
-    height: calc(100vh - 100px);
-    margin: 0.5rem;
-    padding: 1rem;
+    margin: 1rem;
+    padding: 2rem 1rem;
   }
   
   .navbar {
@@ -506,10 +501,13 @@ select.form-control {
   main {
     margin-top: 60px;
   }
+  
+  .flash-messages {
+    top: 80px;
+  }
 }
 
 main {
-  margin-top: 70px;
   flex: 1;
   width: 100%;
 }
